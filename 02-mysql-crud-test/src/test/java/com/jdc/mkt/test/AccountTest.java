@@ -70,13 +70,16 @@ class AccountTest {
 
 	}
 
-	@Test
+	@ParameterizedTest
 	@Order(1)
-	void createEmployee() {
+	@CsvSource("Sandar,2,1")
+	void createEmployee(String name,int role,int active) {
 		System.out.println("create Employee");
-		String sql = "INSERT INTO employee_tbl(name,role,active) values('admin',2,1)";
+		String sql = "INSERT INTO employee_tbl(name,role,active) values('%s',%d,%d)"
+				.formatted(name,role,active);
 
-		try (var con = getConnection(); var stmt = con.createStatement()) {
+		try (var con = getConnection(); 
+				var stmt = con.createStatement()) {
 
 			int result = stmt.executeUpdate(sql);
 			assertEquals(1, result);
@@ -99,11 +102,13 @@ class AccountTest {
 			Employee emp = null;
 
 			while (rs.next()) {
-				emp = new Employee(rs.getInt("id"), rs.getString("name"), Role.valueOf(rs.getString("role")),
+				emp = new Employee(rs.getInt("id"), 
+						rs.getString("name"),
+						Role.valueOf(rs.getString("role")),
 						rs.getBoolean("active"));
 			}
 
-			assertEquals("admin", emp.getName());
+			assertEquals("Sandar", emp.getName());
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -113,7 +118,7 @@ class AccountTest {
 
 	@ParameterizedTest
 	@Order(3)
-	@CsvSource(value="1:AungAung:CASHIER:1",delimiter =':')
+	@CsvSource(value="1:Aung Aung:CASHIER:1",delimiter =':')
 	void updateEmployee(int id,String name, String role, int active) {
 
 		String sql = "UPDATE employee_tbl SET name='%s',role='%s',active=%d where id=%d"
@@ -122,6 +127,25 @@ class AccountTest {
 		try (var con = getConnection(); 
 				var stmt = con.createStatement()) {
 			stmt.executeUpdate(sql);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+
+		}
+	}
+	
+	@ParameterizedTest
+	@Order(4)
+	@ValueSource(ints = 1)
+	void deleteEmployee(int id) {
+		String sql ="DELETE FROM employee_tbl WHERE id=%d"
+				.formatted(id);
+		
+		try (var con = getConnection(); 
+				var stmt = con.createStatement()) {
+			int result = stmt.executeUpdate(sql);
+			assertEquals(1, result);
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
