@@ -33,7 +33,8 @@ class AccountTest {
 	@BeforeAll
 	static void init() {
 		String sql = "TRUNCATE TABLE employee_tbl";
-		try (var con = getConnection(); var stmt = con.createStatement()) {
+		try (var con = getConnection();
+				var stmt = con.createStatement()) {
 
 			stmt.executeUpdate(sql);
 
