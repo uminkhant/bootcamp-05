@@ -22,9 +22,14 @@ class ClassroomDaoImpl implements ClassroomDao {
 			stmt.setString(1, name);
 			stmt.setDate(2, Date.valueOf(date));
 			
+			stmt.executeUpdate();
 			
-			return stmt.executeUpdate();
-
+			var rs = stmt.getGeneratedKeys();
+			
+			while(rs.next()) {
+				return rs.getInt(1);
+			}
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

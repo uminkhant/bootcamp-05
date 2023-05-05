@@ -23,7 +23,7 @@ import com.jdc.mkt.dto.Student.Gender;
 import static com.jdc.mkt.util.MyConnection.getConnection;
 
 @TestMethodOrder(OrderAnnotation.class)
-public class PersonTest {
+public class StudentTest {
 	
 	private static StudentDao studentDao;
 	

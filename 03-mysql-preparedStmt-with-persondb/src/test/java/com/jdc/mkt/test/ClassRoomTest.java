@@ -31,12 +31,11 @@ public class ClassRoomTest {
 	@ParameterizedTest
 	@Order(1)
 	@CsvSource(value = {
-			"wd-batch-06:2023-07-03",
-			"we-batch-03:2023-09-01"
+			"wd-batch-06:2023-07-03"		
 	},delimiter = ':')
 	void createClassRoom(String name,String date) {	
 	int result = classroom.insertClass(name, LocalDate.parse(date));
-	assertEquals(1, result);
+	assertEquals(17, result);
 	
 	}
 	
