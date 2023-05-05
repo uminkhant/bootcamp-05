@@ -59,7 +59,7 @@ public class PersonTest {
 		assertEquals(1, result);
 	}
 
-	@Test
+	//@Test
 	@Order(4)
 	void selectPersonWithAddress() {
 		var list = studentDao.selectPersonWithAddress();

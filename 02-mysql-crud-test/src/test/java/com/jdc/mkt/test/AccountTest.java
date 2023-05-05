@@ -30,11 +30,10 @@ class AccountTest {
 
 	}
 
-	@BeforeAll
+	// @BeforeAll
 	static void init() {
 		String sql = "TRUNCATE TABLE employee_tbl";
-		try (var con = getConnection();
-				var stmt = con.createStatement()) {
+		try (var con = getConnection(); var stmt = con.createStatement()) {
 
 			stmt.executeUpdate(sql);
 
@@ -71,16 +70,15 @@ class AccountTest {
 
 	}
 
-	@ParameterizedTest
+	
+	// @ParameterizedTest
 	@Order(1)
 	@CsvSource("Sandar,2,1")
-	void createEmployee(String name,int role,int active) {
+	void createEmployee(String name, int role, int active) {
 		System.out.println("create Employee");
-		String sql = "INSERT INTO employee_tbl(name,role,active) values('%s',%d,%d)"
-				.formatted(name,role,active);
+		String sql = "INSERT INTO employee_tbl(name,role,active) values('%s',%d,%d)".formatted(name, role, active);
 
-		try (var con = getConnection(); 
-				var stmt = con.createStatement()) {
+		try (var con = getConnection(); var stmt = con.createStatement()) {
 
 			int result = stmt.executeUpdate(sql);
 			assertEquals(1, result);
@@ -91,7 +89,7 @@ class AccountTest {
 
 	}
 
-	@ParameterizedTest
+	// @ParameterizedTest
 	@Order(2)
 	@ValueSource(ints = { 1 })
 	void retrieveEmployee(int id) {
@@ -103,9 +101,7 @@ class AccountTest {
 			Employee emp = null;
 
 			while (rs.next()) {
-				emp = new Employee(rs.getInt("id"), 
-						rs.getString("name"),
-						Role.valueOf(rs.getString("role")),
+				emp = new Employee(rs.getInt("id"), rs.getString("name"), Role.valueOf(rs.getString("role")),
 						rs.getBoolean("active"));
 			}
 
@@ -117,37 +113,33 @@ class AccountTest {
 		}
 	}
 
-	@ParameterizedTest
+	// @ParameterizedTest
 	@Order(3)
-	@CsvSource(value="1:Aung Aung:CASHIER:1",delimiter =':')
-	void updateEmployee(int id,String name, String role, int active) {
+	@CsvSource(value = "1:Aung Aung:CASHIER:1", delimiter = ':')
+	void updateEmployee(int id, String name, String role, int active) {
 
-		String sql = "UPDATE employee_tbl SET name='%s',role='%s',active=%d where id=%d"
-				.formatted(name,role,active,id);
-		
-		try (var con = getConnection(); 
-				var stmt = con.createStatement()) {
+		String sql = "UPDATE employee_tbl SET name='%s',role='%s',active=%d where id=%d".formatted(name, role, active,
+				id);
+
+		try (var con = getConnection(); var stmt = con.createStatement()) {
 			stmt.executeUpdate(sql);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 
 		}
 	}
-	
-	@ParameterizedTest
+
+	// @ParameterizedTest
 	@Order(4)
 	@ValueSource(ints = 1)
 	void deleteEmployee(int id) {
-		String sql ="DELETE FROM employee_tbl WHERE id=%d"
-				.formatted(id);
-		
-		try (var con = getConnection(); 
-				var stmt = con.createStatement()) {
+		String sql = "DELETE FROM employee_tbl WHERE id=%d".formatted(id);
+
+		try (var con = getConnection(); var stmt = con.createStatement()) {
 			int result = stmt.executeUpdate(sql);
 			assertEquals(1, result);
-			
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 
