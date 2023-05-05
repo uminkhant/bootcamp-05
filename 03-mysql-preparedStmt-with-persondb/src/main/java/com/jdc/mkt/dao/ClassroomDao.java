@@ -9,7 +9,7 @@ public interface ClassroomDao {
 
 	int insertClass(String name,LocalDate date) ;
 	int deleteClassById(int id);
-	int updateClass(String name,LocalDate date,boolean active);
+	int updateClass(int id,String name,LocalDate date,boolean active);
 	List<ClassRoom> getAllClasses();
 	
 	public static ClassroomDao getInstanceClass() {
