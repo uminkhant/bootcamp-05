@@ -23,7 +23,7 @@ class ClassroomDaoImpl implements ClassroomDao {
 			stmt.setDate(2, Date.valueOf(date));
 			
 			
-			
+			return stmt.executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
