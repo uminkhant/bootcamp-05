@@ -7,11 +7,12 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import com.jdc.mkt.entity.Product;
+import com.jdc.mkt.entity.TableA;
+import com.jdc.mkt.entity.TableB;
 
-public class ProductTest {
+public class TableGenTest {
 
-	private static EntityManagerFactory emf;
+	static EntityManagerFactory emf;
 	
 	@BeforeAll
 	static void createEmf() {
@@ -24,13 +25,21 @@ public class ProductTest {
 			emf.close();
 		}
 	}
+	
 	@Test
-	void createProduct() {
+	void test() {
+		TableA a = new TableA();
+		a.setName("a");
+		TableB b = new TableB();
+		b.setName("b");
+		
 		var em = emf.createEntityManager();
-		Product p = new Product(1, "Orange", "001O","Fruits");
 		em.getTransaction().begin();
-		em.persist(p);
+		em.persist(a);
+		System.out.println("Table A : %d".formatted(a.getId()));
+		em.persist(b);
+		System.out.println("Table B : %d".formatted(b.getId()));
 		em.getTransaction().commit();
 	}
-
+	
 }

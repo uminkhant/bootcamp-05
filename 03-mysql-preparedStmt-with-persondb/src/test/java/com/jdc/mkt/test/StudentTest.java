@@ -1,26 +1,14 @@
 package com.jdc.mkt.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
-import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import com.jdc.mkt.dao.StudentDao;
-import com.jdc.mkt.dto.Address;
-import com.jdc.mkt.dto.Student;
-import com.jdc.mkt.dto.Student.Gender;
-
-import static com.jdc.mkt.util.MyConnection.getConnection;
 
 @TestMethodOrder(OrderAnnotation.class)
 public class StudentTest {
