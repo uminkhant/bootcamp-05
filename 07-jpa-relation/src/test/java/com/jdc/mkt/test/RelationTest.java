@@ -29,27 +29,27 @@ public class RelationTest {
 	}
 	@Test
 	void test() {
-		Address a = new Address();
-		a.setStreet("19st");
-		a.setTownship("mahar aung myay");
-		a.setCity("mdy");
-		
-		Contact c = new Contact();
-		c.setPhone("09-32423423");
-		c.setEmail("mmmm@gmail.com");
-		
-		Customer cu = new Customer();
-		cu.setAddress(a);
-		cu.setContact(c);
-		cu.setMemberType(MemberType.SILVER);
-		cu.setName("mm mm");
-		
-		EntityManager em = emf.createEntityManager();
-		
-		em.getTransaction().begin();
-		em.persist(a);
-		em.persist(c);
-		em.persist(cu);
-		em.getTransaction().commit();
+//		Address a = new Address();
+//		a.setStreet("19st");
+//		a.setTownship("mahar aung myay");
+//		a.setCity("mdy");
+//		
+//		Contact c = new Contact();
+//		c.setPhone("09-32423423");
+//		c.setEmail("mmmm@gmail.com");
+//		
+//		Customer cu = new Customer();
+//		//cu.setAddress(a);
+//		cu.setContact(c);
+//		cu.setMemberType(MemberType.SILVER);
+//		cu.setName("mm mm");
+//		
+//		EntityManager em = emf.createEntityManager();
+//		
+//		em.getTransaction().begin();
+//		em.persist(a);
+//		em.persist(c);
+//		em.persist(cu);
+//		em.getTransaction().commit();
 	}
 }

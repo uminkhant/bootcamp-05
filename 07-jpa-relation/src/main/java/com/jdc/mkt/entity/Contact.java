@@ -22,5 +22,7 @@ public class Contact implements Serializable {
 	private String phone;
 	@Column(nullable = false)
 	private String email;
+	@OneToOne
+	private Customer customer;
 
 }
