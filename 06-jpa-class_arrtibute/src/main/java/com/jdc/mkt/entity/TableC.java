@@ -12,7 +12,7 @@ import javax.persistence.IdClass;
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
+//@Entity
 @Getter
 @Setter
 @IdClass(value = TableD.class)
