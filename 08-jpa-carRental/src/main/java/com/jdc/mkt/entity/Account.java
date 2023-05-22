@@ -11,7 +11,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
+import javax.persistence.MappedSuperclass;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -21,12 +24,13 @@ import static javax.persistence.DiscriminatorType.INTEGER;
 @Entity
 @Getter
 @Setter
-@DiscriminatorColumn(name = "acc_type", discriminatorType = INTEGER)
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name = "acc_type", discriminatorType = INTEGER)
 public abstract class Account implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue
 	private int id;
 	private String name;
 	@ManyToOne

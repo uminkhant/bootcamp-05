@@ -5,7 +5,6 @@ import javax.persistence.Persistence;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -29,18 +28,22 @@ public class RentalTest {
 			String street,String township,String city,
 			Gender gender,String email ,String contact) {
 		
-		Address ad = new Address(street,township,city);
-		Contact c = new Contact(email, contact);
-		var driver = new Driver(name, ad, gender, c) ;
-		var admin = new Admin(name, ad, gender, c) ;
+//		Address ad = new Address(street,township,city);
+//		Contact c = new Contact(email, contact);
+//		var driver = new Driver(name, ad, gender, c) ;
+//		var admin = new Admin(name, ad, gender, c) ;
+//		
+//		var em = emf.createEntityManager();
+//		
+//		
+//		em.getTransaction().begin();
+//		em.persist(ad);
+//		em.persist(driver);
+//		em.persist(admin);
+//		em.getTransaction().commit();
 		
-		var em = emf.createEntityManager();
 		
-		em.getTransaction().begin();
-		em.persist(ad);
-		em.persist(driver);
-		em.persist(admin);
-		em.getTransaction().commit();
+	
 	}
 	
 	@AfterAll
