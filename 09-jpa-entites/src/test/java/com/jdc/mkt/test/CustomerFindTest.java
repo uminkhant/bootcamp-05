@@ -2,11 +2,14 @@ package com.jdc.mkt.test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityNotFoundException;
 import javax.persistence.Persistence;
 
+import org.hibernate.LazyInitializationException;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
@@ -53,8 +56,9 @@ public class CustomerFindTest {
 		
 		em.close();
 		
-		assertEquals("myothu", cu.getName());		
-		System.out.println("Cu Name :"+cu.getName());
+		assertThrows(LazyInitializationException.class,()-> cu.getName());
+		
+		//System.out.println("Cu Name :"+cu.getName());
 		
 	}
 	
