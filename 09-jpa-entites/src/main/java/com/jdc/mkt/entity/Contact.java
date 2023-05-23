@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +18,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@Table(name="contact_tbl")
 public class Contact implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -27,7 +29,7 @@ public class Contact implements Serializable{
 	private String phone;
 	@Column(nullable = false)
 	private String email;
-	@OneToOne
+	@OneToOne(mappedBy = "contact")
 	private Customer customer;
 	
 	public Contact(String phone, String email, Customer customer) {

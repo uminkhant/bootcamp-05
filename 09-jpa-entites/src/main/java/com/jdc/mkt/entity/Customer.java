@@ -19,6 +19,11 @@ import lombok.Setter;
 import javax.persistence.ElementCollection;
 import static javax.persistence.FetchType.EAGER;
 import javax.persistence.CollectionTable;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.CascadeType.REMOVE;
+import static javax.persistence.CascadeType.MERGE;
 
 @Entity
 @Getter
@@ -39,8 +44,13 @@ public class Customer implements Serializable {
 	private String password;
 	
 	@ElementCollection(fetch = FetchType.LAZY)
-	@CollectionTable(name = "tags_tbl")
+	@CollectionTable(name = "tags_tbl", 
+	joinColumns = @JoinColumn(name = "customer_id", referencedColumnName = "id"))
 	private List<String> tags = new ArrayList<>();
+	
+	@OneToOne(orphanRemoval = true,
+			cascade = { PERSIST, MERGE })
+	private Contact contact;
 	
 	public Customer(String name, String loginId, String password) {
 		super();
