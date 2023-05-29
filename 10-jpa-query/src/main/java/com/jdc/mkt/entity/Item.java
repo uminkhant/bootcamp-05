@@ -38,7 +38,7 @@ public class Item implements Serializable{
 	private int price;
 	@ManyToOne(cascade = PERSIST)
 	private Category category;
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany
 	@JoinTable(name = "cus_item",
 	joinColumns = @JoinColumn(name = "item_id"),
 	inverseJoinColumns = @JoinColumn(name = "customer_id"))

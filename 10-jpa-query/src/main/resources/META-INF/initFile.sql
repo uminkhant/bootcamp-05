@@ -72,4 +72,6 @@ insert into cus_item values (22,4);
 insert into cus_item values (11,5);
 insert into cus_item values (30,5);
 
+insert into cus_item values (21,6);
+
 

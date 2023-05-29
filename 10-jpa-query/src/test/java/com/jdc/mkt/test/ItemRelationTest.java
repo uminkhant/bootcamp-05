@@ -12,14 +12,14 @@ import com.jdc.mkt.test.utils.JupitorTest;
 @TestMethodOrder(OrderAnnotation.class)
 public class ItemRelationTest extends JupitorTest{
 
-	//@Test
+	@Test
 	@Order(1)
 	void test_many_to_one() {
 		var item = em.find(Item.class, 1);
 		System.out.println(item.getCategory().getName());
 	}
 	
-	//@Test
+	@Test
 	@Order(2)
 	void test_one_to_many() {
 		var category = em.find(Category.class, 1);
