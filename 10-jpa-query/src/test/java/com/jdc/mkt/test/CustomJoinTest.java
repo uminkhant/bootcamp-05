@@ -42,7 +42,7 @@ public class CustomJoinTest extends JupitorTest{
 		var query = em.createQuery(jpql,Item.class);
 		query.setParameter("town", "aungmyaytharzan");
 		var list = query.getResultList();
-		list.stream().map(Item::getName).forEach(System.out::println);
+		list.stream().map(i -> i.getName()).forEach(System.out::println);
 		
 	}
 }

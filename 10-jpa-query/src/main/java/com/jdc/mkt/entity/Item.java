@@ -12,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -43,7 +44,8 @@ public class Item implements Serializable{
 	joinColumns = @JoinColumn(name = "item_id"),
 	inverseJoinColumns = @JoinColumn(name = "customer_id"))
 	private List<Customer> customers;
-	
+	@OneToMany(mappedBy = "item")
+	private List<VoucherDetails>details;
 	
 	public Item(String name, int price, Category category) {
 		super();

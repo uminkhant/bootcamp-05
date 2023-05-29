@@ -74,4 +74,15 @@ insert into cus_item values (30,5);
 
 insert into cus_item values (21,6);
 
+insert into voucher(customer_id,voucher_date) values (1,'20230412');
+insert into voucher(customer_id,voucher_date) values (3,'20230412');
+
+insert into voucher_detail (item_id,voucher_id,qty) values (1,1,3);
+insert into voucher_detail (item_id,voucher_id,qty) values (3,1,2);
+insert into voucher_detail (item_id,voucher_id,qty) values (5,1,5);
+
+insert into voucher_detail (item_id,voucher_id,qty) values (11,2,1);
+insert into voucher_detail (item_id,voucher_id,qty) values (12,2,2);
+insert into voucher_detail (item_id,voucher_id,qty) values (13,2,2);
+
 
