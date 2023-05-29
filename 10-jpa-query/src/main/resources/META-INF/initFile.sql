@@ -4,6 +4,7 @@ insert into category(name) values ('Drinks');
 insert into category(name) values ('Fruits');
 insert into category(name) values ('Vegetables');
 insert into category(name) values ('Cleaning');
+insert into category(name) values('Others');
 
 insert into item (name,price,category_id) values('Milk',2500,1);
 insert into item (name,price,category_id) values('Eggs',2200,1);
@@ -36,3 +37,39 @@ insert into item (name,price,category_id) values('Garbage bag',700,6);
 insert into item (name,price,category_id) values('Glass cleaner',1300,6);
 insert into item (name,price,category_id) values('Dish soap',500,6);
 insert into item (name,price,category_id) values('Laundry soap',2200,6);
+insert into item (name,price,category_id) values('Body Wash soap',2200,null);
+
+insert into address(street,township,city) values('19st','aungmyaytharzan','mandalay');
+insert into address(street,township,city) values('35st','mahar aung myay','mandalay');
+insert into address(street,township,city) values('41st','mahar aung myay','mandalay');
+
+insert into customer (name,address_id) values ('Andrew',1);
+insert into customer (name,address_id) values ('Sophia',1);
+insert into customer (name,address_id) values ('William',1);
+insert into customer (name,address_id) values ('John',1);
+insert into customer (name,address_id) values ('Arnel',2);
+insert into customer (name,address_id) values ('Upul Sampah',3);
+
+insert into cus_item values (1,1);
+insert into cus_item values (5,1);
+insert into cus_item values (10,1);
+insert into cus_item values (20,1);
+
+insert into cus_item values (11,2);
+insert into cus_item values (13,2);
+insert into cus_item values (25,2);
+
+insert into cus_item values (9,3);
+insert into cus_item values (14,3);
+insert into cus_item values (22,3);
+insert into cus_item values (16,3);
+insert into cus_item values (30,3);
+
+insert into cus_item values (19,4);
+insert into cus_item values (14,4);
+insert into cus_item values (22,4);
+
+insert into cus_item values (11,5);
+insert into cus_item values (30,5);
+
+
