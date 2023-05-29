@@ -1,21 +1,21 @@
-package com.jdc.mkt.entity;
+package com.jdc.mkt.entity.listener;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+
 import javax.persistence.Embeddable;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-
 @Embeddable
 @Getter
 @Setter
 @EqualsAndHashCode
-public class Customer implements Serializable{
+public class Times implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-	private String name;
-	private String age;
-//	@ElementCollection
-//	private List<String> texting;
+	private LocalDateTime createDate;
+	private LocalDateTime updateDate;
+	
 }

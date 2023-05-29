@@ -8,10 +8,6 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
-import com.jdc.mkt.entity.Address;
-import com.jdc.mkt.entity.Admin;
-import com.jdc.mkt.entity.Contact;
-import com.jdc.mkt.entity.Driver;
 import com.jdc.mkt.entity.Account.Gender;
 
 public class RentalTest {

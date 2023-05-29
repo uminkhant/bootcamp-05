@@ -1,8 +1,6 @@
 package com.jdc.mkt.entity;
 
 import java.io.Serializable;
-import java.util.List;
-
 import javax.persistence.*;
 
 import lombok.Getter;

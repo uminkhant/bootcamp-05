@@ -3,7 +3,6 @@ package com.jdc.mkt.entity;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.SecondaryTable;
 import javax.persistence.SecondaryTables;

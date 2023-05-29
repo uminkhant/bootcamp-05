@@ -3,9 +3,6 @@ package com.jdc.mkt.entity;
 import java.io.Serializable;
 import java.util.Objects;
 
-import javax.persistence.Embeddable;
-
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 

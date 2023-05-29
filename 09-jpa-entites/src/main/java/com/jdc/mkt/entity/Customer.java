@@ -1,28 +1,31 @@
 package com.jdc.mkt.entity;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.jdc.mkt.entity.listener.EntityListener;
+import com.jdc.mkt.entity.listener.ObjectEnableListener;
+import com.jdc.mkt.entity.listener.Times;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.ElementCollection;
-import static javax.persistence.FetchType.EAGER;
+import javax.persistence.Embedded;
 import javax.persistence.CollectionTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import static javax.persistence.CascadeType.PERSIST;
-import static javax.persistence.CascadeType.REMOVE;
 import static javax.persistence.CascadeType.MERGE;
 
 @Entity
@@ -30,7 +33,8 @@ import static javax.persistence.CascadeType.MERGE;
 @Setter
 @Table(name = "customer_tbl")
 @NoArgsConstructor
-public class Customer implements Serializable {
+@EntityListeners(EntityListener.class)
+public class Customer implements ObjectEnableListener {
 
 	private static final long serialVersionUID = 1L;
 	@Id
@@ -51,6 +55,8 @@ public class Customer implements Serializable {
 	@OneToOne(orphanRemoval = true,
 			cascade = { PERSIST, MERGE })
 	private Contact contact;
+	@Embedded
+	private Times times;
 	
 	public Customer(String name, String loginId, String password) {
 		super();

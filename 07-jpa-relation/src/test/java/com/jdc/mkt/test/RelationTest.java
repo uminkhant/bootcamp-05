@@ -1,17 +1,11 @@
 package com.jdc.mkt.test;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import com.jdc.mkt.entity.Address;
-import com.jdc.mkt.entity.Contact;
-import com.jdc.mkt.entity.Customer;
-import com.jdc.mkt.entity.Customer.MemberType;
 
 public class RelationTest {
 
