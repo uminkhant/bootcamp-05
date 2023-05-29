@@ -18,8 +18,7 @@ import static javax.persistence.CascadeType.PERSIST;
 @Entity
 @Getter
 @Setter
-@Table(name = "item_tbl")
-@NamedQuery(name = "Item.selectItemByCatId",query = "select i from Item i where i.category.id = :id")
+@Table(name = "item")
 public class Item implements Serializable{
 
 	private static final long serialVersionUID = 1L;
