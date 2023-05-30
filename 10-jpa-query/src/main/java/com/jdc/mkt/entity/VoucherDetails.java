@@ -9,12 +9,13 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
+import lombok.Getter;
 import lombok.Setter;
 
 @Entity
 @Setter
+@Getter
 @Table(name = "voucher_detail")
 public class VoucherDetails implements Serializable {
 
@@ -28,22 +29,10 @@ public class VoucherDetails implements Serializable {
 	private Voucher voucher;
 	@Column(nullable = false)
 	private int qty;
-	@SuppressWarnings("unused")
-	@Transient
+	
 	private int total;
 	
-	public int getId() {
-		return id;
-	}
-	public Item getItem() {
-		return item;
-	}
-	public int getQty() {
-		return qty;
-	}
-	public int getTotal() {
-		return item.getPrice()*qty;
-	}
+	
 	
 	
 }

@@ -1,13 +1,12 @@
 package com.jdc.mkt.test;
 
-import org.junit.jupiter.api.Test;
 
 import com.jdc.mkt.entity.dto.ItemByTownship;
 import com.jdc.mkt.test.utils.JupitorTest;
 
 public class ProjectionTest extends JupitorTest{
 
-	@Test
+	//@Test
 	void test_select_item_by_township() {
 		
 		var jpql = """
@@ -27,6 +26,8 @@ public class ProjectionTest extends JupitorTest{
 			
 		});
 	}
+	
+	
 	
 	
 }

@@ -6,6 +6,7 @@ insert into category(name) values ('Vegetables');
 insert into category(name) values ('Cleaning');
 insert into category(name) values('Others');
 
+
 insert into item (name,price,category_id) values('Milk',2500,1);
 insert into item (name,price,category_id) values('Eggs',2200,1);
 insert into item (name,price,category_id) values('Butter',4000,1);
@@ -74,15 +75,54 @@ insert into cus_item values (30,5);
 
 insert into cus_item values (21,6);
 
-insert into voucher(customer_id,voucher_date) values (1,'20230412');
-insert into voucher(customer_id,voucher_date) values (3,'20230412');
+insert into voucher(customer_id,voucher_date) values (1,'20220112');
+insert into voucher(customer_id,voucher_date) values (2,'20220405');
+insert into voucher(customer_id,voucher_date) values (3,'20230107');
+insert into voucher(customer_id,voucher_date) values (4,'20230222');
+insert into voucher(customer_id,voucher_date) values (5,'20230303');
+insert into voucher(customer_id,voucher_date) values (6,'20230411');
+insert into voucher(customer_id,voucher_date) values (6,'20230510');
+insert into voucher(customer_id,voucher_date) values (5,'20230512');
+insert into voucher(customer_id,voucher_date) values (3,'20230512');
+insert into voucher(customer_id,voucher_date) values (4,'20230512');
 
-insert into voucher_detail (item_id,voucher_id,qty) values (1,1,3);
-insert into voucher_detail (item_id,voucher_id,qty) values (3,1,2);
-insert into voucher_detail (item_id,voucher_id,qty) values (5,1,5);
 
-insert into voucher_detail (item_id,voucher_id,qty) values (11,2,1);
-insert into voucher_detail (item_id,voucher_id,qty) values (12,2,2);
-insert into voucher_detail (item_id,voucher_id,qty) values (13,2,2);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (1,1,3,7500);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (3,1,2,8000);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (5,1,5,6000);
+
+insert into voucher_detail (item_id,voucher_id,qty,total) values (11,2,1,3500);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (12,2,2,6400);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (13,2,2,2000);
+
+insert into voucher_detail (item_id,voucher_id,qty,total) values (1,3,3,7500);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (3,3,2,8000);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (5,3,5,6000);
+
+insert into voucher_detail (item_id,voucher_id,qty,total) values (1,4,3,7500);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (3,4,2,8000);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (2,4,5,11000);
+
+insert into voucher_detail (item_id,voucher_id,qty,total) values (22,5,3,6000);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (1,5,2,5000);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (30,5,3,6600);
+
+insert into voucher_detail (item_id,voucher_id,qty,total) values (1,6,3,7500);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (3,6,2,8000);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (5,6,5,6000);
+
+insert into voucher_detail (item_id,voucher_id,qty,total) values (11,7,1,3500);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (12,7,2,6400);
+
+
+insert into voucher_detail (item_id,voucher_id,qty,total) values (1,8,3,7500);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (3,8,2,8000);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (5,8,5,6000);
+
+insert into voucher_detail (item_id,voucher_id,qty,total) values (1,9,3,7500);
+
+insert into voucher_detail (item_id,voucher_id,qty,total) values (22,10,3,6000);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (1,10,2,5000);
+insert into voucher_detail (item_id,voucher_id,qty,total) values (30,10,3,6600);
 
 
