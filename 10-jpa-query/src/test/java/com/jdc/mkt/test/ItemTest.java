@@ -1,7 +1,5 @@
 package com.jdc.mkt.test;
 
-
-
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
@@ -10,6 +8,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
 import com.jdc.mkt.entity.Item;
+import com.jdc.mkt.entity.VoucherDetails;
 import com.jdc.mkt.test.utils.JupitorTest;
 
 @TestMethodOrder(OrderAnnotation.class)
@@ -21,19 +20,18 @@ public class ItemTest extends JupitorTest {
 //		var query = em.createQuery("""
 //				select i from Item i where i.category.name = :cat
 //				""",Item.class);
-		var query = em.createNamedQuery("Item.selectByCategoryName",Item.class);
+		var query = em.createNamedQuery("Item.selectByCategoryName", Item.class);
 		query.setParameter("cat", "Drinks");
 		var list = query.getResultList();
-		
-		list.stream().map(Item::getName)
-		.forEach(System.out::println);
-		
-	
+
+		list.stream().map(Item::getName).forEach(System.out::println);
+
 	}
+
 	@ParameterizedTest
 	@CsvSource("6,1000")
 	@Order(2)
-	void test_update_by_catName_item(int id,int price) {
+	void test_update_by_catName_item(int id, int price) {
 //		var query = em.createQuery("""
 //				update Item i set i.price = :price where i.id = :id
 //				""");
@@ -45,7 +43,7 @@ public class ItemTest extends JupitorTest {
 		em.getTransaction().commit();
 		System.out.println(result);
 	}
-	
+
 	@ParameterizedTest
 	@CsvSource("6,1000")
 	@Order(3)
@@ -59,5 +57,17 @@ public class ItemTest extends JupitorTest {
 		var result = query.executeUpdate();
 		em.getTransaction().commit();
 		System.out.println(result);
+	}
+
+	@Test
+	@Order(4)
+	void test_total_qty_by_vou_id() {
+		var jpql = " select vd from VoucherDetails vd where vd.voucher.id = ?1";
+		var query = em.createQuery(jpql, VoucherDetails.class);
+		query.setParameter(1, 2);
+		var list = query.getResultList();
+
+		var qty = list.stream().mapToInt(VoucherDetails::getQty).sum();
+		System.out.println("Total qtys by voucher :" + qty);
 	}
 }
