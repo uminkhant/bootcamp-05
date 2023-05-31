@@ -6,4 +6,4 @@ insert into address(street,township,city,phone,email) values ('Bo Min Yaung Stre
 insert into address(street,township,city,phone,email) values ('No.(47), Corner of Bogyoke Street and Ngwe Yamone Street','Shwepyitha ','yangon','09-5214544','ayeayetun@gmail.com');
 insert into address(street,township,city,phone,email) values ('No.334/336,Corner of Strand Road and 23rd Street','Latha','yangon','09-22334322','wanna@gmail.com');
 
-insert into donator(name,dob,gender) values ('hein min htet','19890212','MALE');
+insert into donator(name,dob,gender,address_id) values ('hein min htet','19890212','MALE',1);

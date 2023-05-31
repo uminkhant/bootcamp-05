@@ -19,4 +19,16 @@ public class Contact implements Serializable{
 	@Column(nullable = false)
 	private String phone;
 	private String email;
+	
+	public Contact(String phone, String email) {
+		super();
+		this.phone = phone;
+		this.email = email;
+	}
+
+	public Contact() {
+		super();
+	}
+	
+	
 }

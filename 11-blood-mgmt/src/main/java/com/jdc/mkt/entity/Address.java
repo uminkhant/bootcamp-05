@@ -29,5 +29,18 @@ public class Address implements Serializable {
 	private String city;
 	@Embedded
 	private Contact contact;
+	public Address() {
+		super();
+	}
+	public Address(String street, String township, String city,Contact contact) {
+		
+		this.street = street;
+		this.township = township;
+		this.city = city;
+		this.contact = contact;
+		
+	}
+	
+	
 
 }

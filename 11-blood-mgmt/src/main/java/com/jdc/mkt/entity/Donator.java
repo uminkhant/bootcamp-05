@@ -42,6 +42,23 @@ public class Donator implements Serializable{
 	public enum Gender{
 		MALE,FEMALE
 	}
+
+	
+
+	public Donator(String name, LocalDate dob, Address address, Gender gender) {
+		super();
+		this.name = name;
+		this.dob = dob;
+		this.address = address;
+		this.gender = gender;
+	}
+
+
+
+	public Donator() {
+		super();
+	}
+	
 	
 
 }
