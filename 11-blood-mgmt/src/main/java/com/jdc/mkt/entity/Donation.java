@@ -10,12 +10,14 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
+import javax.persistence.Table;
 
 import lombok.Getter;
 import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(name = "donation")
 public class Donation implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -29,7 +31,7 @@ public class Donation implements Serializable{
 	private boolean isAvaliable;
 	@ManyToOne
 	@MapsId("donatorId")
-	private Donater donator;
+	private Donator donator;
 	@ManyToOne
 	@MapsId("patientId")
 	private Patient patient;

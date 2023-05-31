@@ -2,6 +2,7 @@ package com.jdc.mkt.entity;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 import lombok.EqualsAndHashCode;
@@ -15,7 +16,7 @@ import lombok.Setter;
 public class Contact implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-
+	@Column(nullable = false)
 	private String phone;
 	private String email;
 }
