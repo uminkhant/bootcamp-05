@@ -6,7 +6,6 @@ insert into category(name) values ('Vegetables');
 insert into category(name) values ('Cleaning');
 insert into category(name) values('Others');
 
-
 insert into item (name,price,category_id) values('Milk',2500,1);
 insert into item (name,price,category_id) values('Eggs',2200,1);
 insert into item (name,price,category_id) values('Butter',4000,1);
